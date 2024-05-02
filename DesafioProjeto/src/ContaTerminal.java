@@ -8,31 +8,36 @@ public class ContaTerminal {
         this.numeroConta = numeroConta;
         this.saldo = saldo;
     }
+
     public void depositar(double valor){
         saldo += valor;
         System.out.println("Deposito de " + valor + "realizado com sucesso");
     }
-    public void sacar(double valor){
+
+    public double sacar(double valor){
         if(saldo <= valor){
             saldo -= valor;
-            System.err.println("Saque de "+ valor + "realizado com sucesso");
-            }else{
-            System.err.println("Saldo insuficiente");
+            System.out.println("Saque de "+ valor + "realizado com sucesso");
+        } else {
+            System.out.println("Saldo insuficiente");
         }
-        public double getSaldo(){
-            return saldo;
-        }
-        public static void main(String[]args){
-            Scanner scanner = new Scanner(System.in);
+        return saldo;
+    }
 
-            System.out.println("Digite o numero da conta: ");
-            int numeroConta = scanner.nextInt();
+    public double getSaldo(){
+        return saldo;
+    }
 
-            System.out.println("Digite o saldo da conta: ");
-            double saldo = scanner.nextDouble();
-            
-        }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Digite o numero da conta: ");
+        int numeroConta = scanner.nextInt();
+
+        System.out.println("Digite o saldo da conta: ");
+        double saldo = scanner.nextDouble();
+
+        ContaTerminal conta = new ContaTerminal(numeroConta, saldo);
 
     }
-        
 }
